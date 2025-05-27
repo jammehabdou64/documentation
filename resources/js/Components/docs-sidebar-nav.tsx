@@ -35,6 +35,7 @@ interface DocsSidebarNavItemsProps {
 
 export function DocsSidebarNavItems({
   items,
+
   pathname,
 }: DocsSidebarNavItemsProps) {
   return items?.length ? (
@@ -45,7 +46,7 @@ export function DocsSidebarNavItems({
             key={index}
             href={item.href}
             className={cn(
-              "group flex w-full items-center rounded-md border border-transparent p-2 hover:bg-logo-cyan hover:text-foreground",
+              "group flex w-full items-center rounded-md border border-transparent p-2  hover:bg-logo-cyan-muted hover:text-foreground",
               item.disabled && "cursor-not-allowed opacity-60",
               pathname === item.href
                 ? "font-medium text-logo-cyan "

@@ -46,7 +46,8 @@
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
-  --color-logo-cyan: #3dad97;
+  --color-logo-cyan-muted: #2b8f7a;
+  --color-logo-cyan: #2cfdd4; /*#2cfdd4*/
 
   /* Border Radius */
   --radius-lg: var(--radius);
@@ -163,6 +164,8 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --color-logo-cyan: #0ee3b9;
   }
 }
 

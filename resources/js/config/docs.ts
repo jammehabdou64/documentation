@@ -52,7 +52,7 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "Form Requests",
-          href: "/docs/form-requests",
+          href: "/docs/form-request",
         },
       ],
     },
