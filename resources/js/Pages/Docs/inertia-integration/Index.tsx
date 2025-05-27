@@ -1,71 +1,78 @@
-"use client"
+import CodeHighLight from "@/Components/CodeHighlight";
+import DocLayout from "@/Components/doc-layout";
 
 export default function InertiaIntegrationPage() {
   return (
-    <div className="space-y-6">
-      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">Inertia.js Integration</h1>
+    <DocLayout>
+      <div className="space-y-6">
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+          Inertia.js Integration
+        </h1>
 
-      <div className="space-y-4">
-        <p>
-          jcc-express-mvc supports Inertia.js, enabling you to build single-page applications without the complexity of
-          a full SPA framework. Inertia.js allows you to create modern, client-side rendered applications while still
-          using server-side routing and controllers.
-        </p>
+        <div className="space-y-4">
+          <p>
+            jcc-express-mvc supports Inertia.js, enabling you to build
+            single-page applications without the complexity of a full SPA
+            framework. Inertia.js allows you to create modern, client-side
+            rendered applications while still using server-side routing and
+            controllers.
+          </p>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Setting Up Inertia.js</h2>
+          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            Setting Up Inertia.js
+          </h2>
 
-        <p>To set up Inertia.js in your jcc-express-mvc application, follow these steps:</p>
+          <p>
+            To set up Inertia.js in your jcc-express-mvc application, follow
+            these steps:
+          </p>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">1. Install Required Packages</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            1. Install Required Packages
+          </h3>
 
-        <p>For Vue.js:</p>
+          <p>For Vue.js:</p>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>npm install @inertiajs/inertia @inertiajs/inertia-vue3 vue@next</code>
-          </pre>
-        </div>
+          <CodeHighLight>
+            npm install @inertiajs/inertia @inertiajs/inertia-vue3 vue@next
+          </CodeHighLight>
 
-        <p>For React:</p>
+          <p>For React:</p>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>npm install @inertiajs/react</code>
-          </pre>
-        </div>
+          <CodeHighLight>npm install @inertiajs/react</CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">2. Add Inertia Middleware</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            2. Add Inertia Middleware
+          </h3>
 
-        <p>
-          Add the Inertia middleware to your <code>app/Http/kernel.ts</code> file:
-        </p>
+          <div>
+            Add the Inertia middleware to your{" "}
+            <CodeHighLight>app/Http/kernel.ts</CodeHighLight> file:
+          </div>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`import { inertia } from "jcc-express-mvc/inertia";
+          <CodeHighLight>
+            {`import { inertia } from "jcc-express-mvc/Core/Inertia";
 
 export class Kernel {
   // app/Http/kernel.ts
-  protected middleware = [
+  public middlewares = [
     // Other middleware...
     inertia({ rootView: \`welcome\` }),
   ];
 }`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">3. Add Plugin to Vite</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            3. Add Plugin to Vite
+          </h3>
 
-        <p>
-          Update your <code>vite.config.js</code> file to include the appropriate plugin:
-        </p>
+          <div>
+            Update your <CodeHighLight>vite.config.js</CodeHighLight> file to
+            include the appropriate plugin:
+          </div>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`import { defineConfig } from "vite";
+          <CodeHighLight>
+            {`import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
 import react from "@vitejs/plugin-react";
 
@@ -79,18 +86,16 @@ export default defineConfig({
     react(),
   ],
 });`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">4. Initialize the Inertia App</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            4. Initialize the Inertia App
+          </h3>
 
-        <p>For React:</p>
+          <p>For React:</p>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`// resources/js/app.js
+          <CodeHighLight>
+            {`// resources/js/app.js
 
 import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
@@ -104,16 +109,12 @@ createInertiaApp({
     createRoot(el).render(<App {...props} />);
   },
 });`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <p>For Vue.js:</p>
+          <p>For Vue.js:</p>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`// resources/js/app.js
+          <CodeHighLight>
+            {`// resources/js/app.js
 
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
@@ -129,16 +130,14 @@ createInertiaApp({
       .mount(el);
   },
 });`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">5. Create a Base Template for Inertia</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            5. Create a Base Template for Inertia
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`<!-- resources/views/welcome.blade.html -->
+          <CodeHighLight>
+            {`<!-- resources/views/welcome.blade.html -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -153,18 +152,19 @@ createInertiaApp({
     @inertia
   </body>
 </html>`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Using Inertia in Controllers</h2>
+          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            Using Inertia in Controllers
+          </h2>
 
-        <p>Once Inertia.js is set up, you can use it in your controllers to render pages:</p>
+          <p>
+            Once Inertia.js is set up, you can use it in your controllers to
+            render pages:
+          </p>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`import { Request, Response, Next } from "jcc-express-mvc/core/http";
+          <CodeHighLight>
+            {`import { Request, Response, Next } from "jcc-express-mvc";
 import { User } from "@/Models/User";
 
 export class UserController {
@@ -184,18 +184,18 @@ export class UserController {
     });
   }
 }`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Creating Inertia Pages</h2>
+          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            Creating Inertia Pages
+          </h2>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">React Example</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            React Example
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`// resources/js/Pages/Users/Index.jsx
+          <CodeHighLight>
+            {`// resources/js/Pages/Users/Index.jsx
 import React from "react";
 import { Link } from "@inertiajs/react";
 import Layout from "../../Layouts/MainLayout";
@@ -244,16 +244,14 @@ export default function Index({ users }) {
     </Layout>
   );
 }`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Vue Example</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            Vue Example
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`<!-- resources/js/Pages/Users/Index.vue -->
+          <CodeHighLight>
+            {`<!-- resources/js/Pages/Users/Index.vue -->
 <template>
   <Layout title="Users">
     <h1>Users</h1>
@@ -306,18 +304,18 @@ export default {
   },
 };
 </script>`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Creating Layouts</h2>
+          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            Creating Layouts
+          </h2>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">React Layout Example</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            React Layout Example
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`// resources/js/Layouts/MainLayout.jsx
+          <CodeHighLight>
+            {`// resources/js/Layouts/MainLayout.jsx
 import React from "react";
 import { Link, usePage } from "@inertiajs/react";
 
@@ -381,16 +379,14 @@ export default function MainLayout({ children, title }) {
     </div>
   );
 }`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Vue Layout Example</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            Vue Layout Example
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`<!-- resources/js/Layouts/MainLayout.vue -->
+          <CodeHighLight>
+            {`<!-- resources/js/Layouts/MainLayout.vue -->
 <template>
   <div class="min-h-screen bg-gray-100">
     <nav class="bg-white border-b border-gray-200">
@@ -457,18 +453,18 @@ export default {
   },
 };
 </script>`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Form Handling with Inertia</h2>
+          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            Form Handling with Inertia
+          </h2>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">React Form Example</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            React Form Example
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`// resources/js/Pages/Users/Create.jsx
+          <CodeHighLight>
+            {`// resources/js/Pages/Users/Create.jsx
 import React from "react";
 import { useForm } from "@inertiajs/react";
 import Layout from "../../Layouts/MainLayout";
@@ -557,16 +553,14 @@ export default function Create() {
     </Layout>
   );
 }`}
-            </code>
-          </pre>
-        </div>
+          </CodeHighLight>
 
-        <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Vue Form Example</h3>
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            Vue Form Example
+          </h3>
 
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`<!-- resources/js/Pages/Users/Create.vue -->
+          <CodeHighLight>
+            {`<!-- resources/js/Pages/Users/Create.vue -->
 <template>
   <Layout title="Create User">
     <form @submit.prevent="submit" class="max-w-md mx-auto">
@@ -659,65 +653,35 @@ export default {
   },
 };
 </script>`}
-            </code>
-          </pre>
+          </CodeHighLight>
+
+          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            Benefits of Using Inertia.js
+          </h2>
+
+          <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+            <li>
+              <strong>Server-side routing</strong>: Use your existing
+              server-side routes and controllers
+            </li>
+            <li>
+              <strong>Client-side rendering</strong>: Get the benefits of a
+              single-page application
+            </li>
+            <li>
+              <strong>No API required</strong>: No need to build a separate API
+            </li>
+            <li>
+              <strong>Progressive enhancement</strong>: Works with or without
+              JavaScript
+            </li>
+            <li>
+              <strong>Framework agnostic</strong>: Works with Vue, React, or
+              Svelte
+            </li>
+          </ul>
         </div>
-
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Shared Data</h2>
-
-        <p>
-          You can share data with all Inertia pages by modifying the Inertia middleware in your{" "}
-          <code>app/Http/kernel.ts</code> file:
-        </p>
-
-        <div className="relative rounded-md bg-muted p-4">
-          <pre className="text-sm">
-            <code>
-              {`import { inertia } from "jcc-express-mvc/inertia";
-
-export class Kernel {
-  protected middleware = [
-    // Other middleware...
-    inertia({ 
-      rootView: \`welcome\`,
-      share: (req, res) => {
-        return {
-          auth: {
-            user: req.user || null,
-          },
-          flash: {
-            success: req.flash('success') || null,
-            error: req.flash('error') || null,
-          },
-        };
-      }
-    }),
-  ];
-}`}
-            </code>
-          </pre>
-        </div>
-
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Benefits of Using Inertia.js</h2>
-
-        <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
-          <li>
-            <strong>Server-side routing</strong>: Use your existing server-side routes and controllers
-          </li>
-          <li>
-            <strong>Client-side rendering</strong>: Get the benefits of a single-page application
-          </li>
-          <li>
-            <strong>No API required</strong>: No need to build a separate API
-          </li>
-          <li>
-            <strong>Progressive enhancement</strong>: Works with or without JavaScript
-          </li>
-          <li>
-            <strong>Framework agnostic</strong>: Works with Vue, React, or Svelte
-          </li>
-        </ul>
       </div>
-    </div>
-  )
+    </DocLayout>
+  );
 }

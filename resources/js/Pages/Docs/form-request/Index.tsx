@@ -27,10 +27,10 @@ export default function FormRequestsPage() {
             ts-node artisanNode make:request UserRequest
           </CodeHighLight>
 
-          <p>
+          <div>
             This will create a new Form Request class at{" "}
             <CodeHighLight>app/Http/Request/UserRequest.ts</CodeHighLight>.
-          </p>
+          </div>
 
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Basic Form Request Structure
@@ -147,11 +147,11 @@ export class UpdateUserRequest extends FormRequest {
             with the validation errors.
           </p>
 
-          <p>
+          <div>
             You can access the validation errors in your views using the{" "}
-            <code>errors</code> variable, and the old input values using the{" "}
-            <code>old</code> variable:
-          </p>
+            <CodeHighLight>errors</CodeHighLight> variable, and the old input
+            values using the <CodeHighLight>old</CodeHighLight> variable:
+          </div>
 
           <CodeHighLight>
             {`<input

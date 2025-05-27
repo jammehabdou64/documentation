@@ -112,15 +112,18 @@ export class UsersController {
           </p>
 
           <div className="relative rounded-md bg-muted p-4">
-            <pre className="text-sm">
-              <code>ts-node artisanNode make:controller PostsController</code>
-            </pre>
+            <CodeHighLight>
+              ts-node artisanNode make:controller PostsController
+            </CodeHighLight>
           </div>
 
-          <p>
+          <div>
             This will create a new controller file at{" "}
-            <code>app/Http/Controllers/PostsController.ts</code>.
-          </p>
+            <CodeHighLight>
+              app/Http/Controllers/PostsController.ts
+            </CodeHighLight>
+            .
+          </div>
 
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Using Controllers in Routes
@@ -158,10 +161,8 @@ Route.post("/users", UsersController.store);`}
             Method 3: Controller Method
           </h3>
 
-          <div className="relative rounded-md bg-muted p-4">
-            <pre className="text-sm">
-              <code>
-                {`import { Route } from "jcc-express-mvc/Route";
+          <CodeHighLight>
+            {`import { Route } from "jcc-express-mvc/Route";
 import { UsersController } from "@Controllers/UsersController";
 
 Route.controller(UsersController).group((Route) => {
@@ -169,19 +170,17 @@ Route.controller(UsersController).group((Route) => {
   Route.get("/users/:id", "show");
   Route.post("/users", "store");
 });`}
-              </code>
-            </pre>
-          </div>
+          </CodeHighLight>
 
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Dependency Injection in Controllers
           </h2>
 
-          <p>
+          <div>
             jcc-express-mvc supports dependency injection in controllers. You
             can use the <CodeHighLight>@Inject()</CodeHighLight> decorator to
             automatically inject dependencies:
-          </p>
+          </div>
 
           <CodeHighLight>
             {`import { Inject } from "jcc-express-mvc/lib/Dependancy";
@@ -203,10 +202,10 @@ export class UsersController {
             Rendering Views from Controllers
           </h2>
 
-          <p>
+          <div>
             You can render views from your controllers using the{" "}
-            <code>res.render()</code> method:
-          </p>
+            <CodeHighLight>res.render()</CodeHighLight> method:
+          </div>
 
           <CodeHighLight>
             {`import { Request, Response, Next } from "jcc-express-mvc";
@@ -229,10 +228,11 @@ export class UsersController {
             Using Inertia.js with Controllers
           </h2>
 
-          <p>
+          <div>
             If you're using Inertia.js, you can return Inertia responses from
-            your controllers using the <code>res.inertia()</code> method:
-          </p>
+            your controllers using the{" "}
+            <CodeHighLight>res.inertia()</CodeHighLight> method:
+          </div>
 
           <CodeHighLight>
             {`import { Request, Response, Next } from "jcc-express-mvc;

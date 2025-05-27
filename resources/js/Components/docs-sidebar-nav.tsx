@@ -1,5 +1,3 @@
-"use client";
-
 import { Link } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
 

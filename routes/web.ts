@@ -47,3 +47,35 @@ Route.get("/docs/validation", (req, res) => {
 Route.get("/docs/form-request", (req, res) => {
   return res.inertia("Docs/form-request/Index");
 });
+
+Route.get("/docs/service-container", (req, res) => {
+  return res.inertia("Docs/service-container/Index");
+});
+
+Route.get("/docs/service-provider", (req, res) => {
+  return res.inertia("Docs/service-provider/Index");
+});
+
+Route.get("/docs/artisan-node-cli", (req, res) => {
+  return res.inertia("Docs/artisan-node-cli/Index");
+});
+
+Route.get("/docs/tinker-node", (req, res) => {
+  return res.inertia("Docs/tinker-node/Index");
+});
+
+Route.get("/docs/jsblade-templating", (req, res) => {
+  return res.inertia("Docs/jsblade-templating/Index");
+});
+
+Route.get("/docs/inertia-integration", (req, res) => {
+  return res.inertia("Docs/inertia-integration/Index");
+});
+
+// Route.get("/docs/helpers", (req, res) => {
+//   return res.inertia("Docs/helpers/Index");
+// });
+
+Route.get("/docs/string-utilities", (req, res) => {
+  return res.inertia("Docs/string-utilities/Index");
+});

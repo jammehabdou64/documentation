@@ -65,15 +65,15 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "Service Providers",
-          href: "/docs/service-providers",
+          href: "/docs/service-provider",
         },
         {
           title: "ArtisanNode CLI",
-          href: "/docs/artisannode-cli",
+          href: "/docs/artisan-node-cli",
         },
         {
           title: "TinkerNode",
-          href: "/docs/tinkernode",
+          href: "/docs/tinker-node",
         },
       ],
     },
@@ -93,10 +93,10 @@ export const docsConfig: DocsConfig = {
     {
       title: "Utilities",
       items: [
-        {
-          title: "Helpers",
-          href: "/docs/helpers",
-        },
+        // {
+        //   title: "Helpers",
+        //   href: "/docs/helpers",
+        // },
         {
           title: "String Utilities",
           href: "/docs/string-utilities",
