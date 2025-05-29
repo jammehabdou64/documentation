@@ -2,8 +2,8 @@
   "compilerOptions": {
     "allowJs": true,
     "module": "ESNext",
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
+    "declarationMap": false,
     "baseUrl": ".",
     "paths": {
       "@/Model/*": ["app/Models/*"],
@@ -26,12 +26,12 @@
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
     "types": ["vite/client"],
 
     "skipDefaultLibCheck": true
   },
   "include": ["**/*"],
 
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "resources/js", "vite.config.mjs"]
 }

@@ -1,5 +1,5 @@
 import { bcrypt, Auth } from "jcc-express-mvc";
-import { Request, Response, Next } from "jcc-express-mvc/core/http";
+import { Request, Response, Next } from "jcc-express-mvc";
 import { User } from "@/Model/User";
 export class UsersController {
   //
