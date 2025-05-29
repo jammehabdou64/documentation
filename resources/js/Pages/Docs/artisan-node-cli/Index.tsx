@@ -1,5 +1,6 @@
 import CodeHighLight from "@/Components/CodeHighlight";
 import DocLayout from "@/Components/doc-layout";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 
 export default function ArtisanNodeCliPage() {
   return (
@@ -23,8 +24,10 @@ export default function ArtisanNodeCliPage() {
 
           <div>
             ArtisanNode commands are run using{" "}
-            <CodeHighLight>ts-node</CodeHighLight> from your project&apos;s root
-            directory:
+            <CodeHighLight>ts-node</CodeHighLight>
+            <p>or</p>
+            <CodeHighLight>bun</CodeHighLight>
+            from your project&apos;s root directory:
           </div>
 
           <CodeHighLight>ts-node artisanNode [command] [options]</CodeHighLight>
@@ -41,8 +44,36 @@ export default function ArtisanNodeCliPage() {
             These commands help you generate various files for your application:
           </p>
 
-          <CodeHighLight>
-            {`# Generate a controller
+          <Tabs defaultValue="bun">
+            <TabsList>
+              <TabsTrigger value="bun" className="cursor-pointer">
+                bun
+              </TabsTrigger>
+              <TabsTrigger value="ts-node" className="cursor-pointer">
+                ts-node
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="bun">
+              <CodeHighLight>
+                {`# Generate a controller
+bun artisanNode make:controller UsersController
+
+# Generate a model
+bun artisanNode make:model User
+
+# Generate a form request
+bun artisanNode make:request UserRequest
+
+# Generate a model with controller and migration
+bun artisanNode make:model User -mcr
+
+# Generate a model with controller, migration, and seeder
+bun artisanNode make:model User -mcsr`}
+              </CodeHighLight>
+            </TabsContent>
+            <TabsContent value="ts-node">
+              <CodeHighLight>
+                {`# Generate a controller
 ts-node artisanNode make:controller UsersController
 
 # Generate a model
@@ -56,7 +87,9 @@ ts-node artisanNode make:model User -mcr
 
 # Generate a model with controller, migration, and seeder
 ts-node artisanNode make:model User -mcsr`}
-          </CodeHighLight>
+              </CodeHighLight>
+            </TabsContent>
+          </Tabs>
 
           <h4 className="font-medium">Options for make:model</h4>
           <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
@@ -84,8 +117,36 @@ ts-node artisanNode make:model User -mcsr`}
 
           <p>These commands help you manage your database migrations:</p>
 
-          <CodeHighLight>
-            {`# Run all pending migrations
+          <Tabs defaultValue="bun">
+            <TabsList>
+              <TabsTrigger value="bun" className="cursor-pointer">
+                bun
+              </TabsTrigger>
+              <TabsTrigger value="ts-node" className="cursor-pointer">
+                ts-node
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="bun">
+              <CodeHighLight>
+                {`# Run all pending migrations
+bun artisanNode migrate
+
+# Rollback the last migration operation
+bun artisanNode migrate:rollback
+
+# Rollback multiple migrations
+bun artisanNode migrate:rollback --steps=3
+
+# Reset and re-run all migrations
+bun artisanNode migrate:fresh
+
+# Reset all migrations
+bun artisanNode migrate:reset`}
+              </CodeHighLight>
+            </TabsContent>
+            <TabsContent value="ts-node">
+              <CodeHighLight>
+                {`# Run all pending migrations
 ts-node artisanNode migrate
 
 # Rollback the last migration operation
@@ -99,7 +160,9 @@ ts-node artisanNode migrate:fresh
 
 # Reset all migrations
 ts-node artisanNode migrate:reset`}
-          </CodeHighLight>
+              </CodeHighLight>
+            </TabsContent>
+          </Tabs>
 
           <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
             Seeder Commands
@@ -190,7 +253,7 @@ export default class UserSeeder {
 }`}
           </CodeHighLight>
 
-          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          {/* <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Creating Custom Commands
           </h2>
 
@@ -293,7 +356,7 @@ export class Kernel {
 
           <CodeHighLight>
             ts-node artisanNode emails:send john --queue
-          </CodeHighLight>
+          </CodeHighLight> */}
         </div>
       </div>
     </DocLayout>

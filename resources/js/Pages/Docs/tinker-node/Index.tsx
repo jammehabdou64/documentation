@@ -16,11 +16,9 @@ export default function TinkerNodePage() {
             terminal, allowing for quick testing and debugging of database
             interactions.
           </p>
-
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Features
           </h2>
-
           <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
             <li>
               <strong>Interactive Console</strong>: TinkerNode provides an
@@ -33,16 +31,15 @@ export default function TinkerNodePage() {
               databases using jcc-eloquent syntax.
             </li>
           </ul>
-
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Getting Started
           </h2>
-
           <p>
             To start TinkerNode, run the following command in your terminal:
           </p>
-
           <CodeHighLight>ts-node artisanNode db-tinker</CodeHighLight>
+          or
+          <CodeHighLight>bun artisanNode db-tinker</CodeHighLight>
         </div>
 
         <p>
@@ -101,19 +98,7 @@ export default function TinkerNodePage() {
         </h3>
 
         <CodeHighLight>
-          {`> const user = new User()
-> user.name = "Jane Smith"
-> user.email = "jane@gmail.com"
-> await user.save()
-{
-  id: 2,
-  name: "Jane Smith",
-  email: "jane@gmail.com",
-  created_at: "2023-01-02 12:00:00",
-  updated_at: "2023-01-02 12:00:00"
-}
-
-> await User.create({ name: "Bob Johnson", email: "bob@gmail.com" })
+          {`> User.create({ name: "Bob Johnson", email: "bob@gmail.com" })
 {
   id: 3,
   name: "Bob Johnson",
@@ -128,18 +113,7 @@ export default function TinkerNodePage() {
         </h3>
 
         <CodeHighLight>
-          {`> const user = await User.find(1)
-> user.name = "John Smith"
-> await user.save()
-{
-  id: 1,
-  name: "John Smith",
-  email: "john@gmail.com",
-  created_at: "2023-01-01 12:00:00",
-  updated_at: "2023-01-04 12:00:00"
-}
-
-> await User.where('id', 2).update({ name: "Jane Johnson" })
+          {`> User.where('id', 2).update({ name: "Jane Johnson" })
 {
   id: 2,
   name: "Jane Johnson",
@@ -154,11 +128,7 @@ export default function TinkerNodePage() {
         </h3>
 
         <CodeHighLight>
-          {`> const user = await User.find(3)
-> await user.delete()
-true
-
-> await User.where('id', 2).delete()
+          {`> User.where('id', 2).delete()
 true`}
         </CodeHighLight>
 
@@ -172,28 +142,7 @@ true`}
         </p>
 
         <CodeHighLight>
-          {`> const user = await User.find(1)
-> const posts = await user.posts().get()
-[
-  {
-    id: 1,
-    user_id: 1,
-    title: "First Post",
-    content: "This is my first post",
-    created_at: "2023-01-01 12:30:00",
-    updated_at: "2023-01-01 12:30:00"
-  },
-  {
-    id: 2,
-    user_id: 1,
-    title: "Second Post",
-    content: "This is my second post",
-    created_at: "2023-01-02 12:30:00",
-    updated_at: "2023-01-02 12:30:00"
-  }
-]
-
-> const post = await Post.with('user').find(1)
+          {`> Post.with('user').find(1)
 {
   id: 1,
   user_id: 1,
@@ -210,7 +159,7 @@ true`}
   }
 }`}
         </CodeHighLight>
-
+        {/* 
         <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
           Executing Raw JavaScript
         </h2>
@@ -233,7 +182,7 @@ true`}
 > const now = new Date()
 > now.toISOString()
 "2023-01-04T12:00:00.000Z"`}
-        </CodeHighLight>
+        </CodeHighLight> */}
 
         <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
           Exiting TinkerNode

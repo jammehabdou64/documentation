@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "module": "ESNext",
+    "module": "NodeNext",
     "declaration": false,
     "declarationMap": false,
     "baseUrl": ".",
@@ -15,7 +15,7 @@
       "@/*": ["./resources/js/*"]
     },
     "esModuleInterop": true,
-    "outDir": "./build",
+    "outDir": "doc-build",
     "strict": true,
     "target": "ESNext",
     "skipLibCheck": true,
@@ -23,7 +23,7 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "jsx": "react-jsx",
     "isolatedModules": true,
     "noEmit": false,
@@ -33,5 +33,5 @@
   },
   "include": ["**/*"],
 
-  "exclude": ["node_modules", "resources/js", "vite.config.mjs"]
+  "exclude": ["node_modules"]
 }

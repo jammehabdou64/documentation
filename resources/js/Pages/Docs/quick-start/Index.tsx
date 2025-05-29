@@ -59,22 +59,23 @@ npm run dev`}
           </p>
           <CodeHighLight>
             {` ts-node artisanNode make:model Post mcr
-              or
-bun artisanNode make:model Post mcr
-              
-              `}
+  or
+bun artisanNode make:model Post mcr`}
           </CodeHighLight>
           <p>This will create:</p>
           <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
             <li>
-              A Post model in <code>app/Models/Post.ts</code>
+              A Post model in <CodeHighLight>app/Models/Post.ts</CodeHighLight>
             </li>
             <li>
               A PostsController in{" "}
-              <code>app/Http/Controllers/PostsController.ts</code>
+              <CodeHighLight>
+                app/Http/Controllers/PostsController.ts
+              </CodeHighLight>
             </li>
             <li>
-              A migration file in <code>database/migrations/</code>
+              A migration file in{" "}
+              <CodeHighLight>database/migrations/</CodeHighLight>
             </li>
           </ul>
 
@@ -106,19 +107,18 @@ export default class CreatePostsTable {
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             6. Run the migration
           </h2>
-          <div className="relative rounded-md bg-muted p-4">
-            <pre className="text-sm">
-              <code>ts-node artisanNode migrate</code>
-            </pre>
-          </div>
+
+          <CodeHighLight>ts-node artisanNode migrate</CodeHighLight>
+          <p>or</p>
+          <CodeHighLight>bun artisanNode migrate</CodeHighLight>
 
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             7. Edit your model
           </h2>
-          <p>
-            Open <code>app/Models/Post.ts</code> and define your model
-            properties:
-          </p>
+          <div>
+            Open <CodeHighLight>app/Models/Post.ts</CodeHighLight> and define
+            your model properties:
+          </div>
           <CodeHighLight>
             {`import { Model } from "jcc-eloquent";
 
@@ -136,12 +136,15 @@ export class Post extends Model {
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             8. Edit your controller
           </h2>
-          <p>
-            Open <code>app/Http/Controllers/PostsController.ts</code> and
-            implement the methods:
-          </p>
+          <div>
+            Open{" "}
+            <CodeHighLight>
+              app/Http/Controllers/PostsController.ts
+            </CodeHighLight>{" "}
+            and implement the methods:
+          </div>
           <CodeHighLight>
-            {`import { Request, Response, Next } from "jcc-express-mvc/core/http";
+            {`import { Request, Response, Next } from "jcc-express-mvc";
 import { Post } from "@/Models/Post";
 
 export class PostsController {
@@ -179,9 +182,10 @@ export class PostsController {
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             9. Define your routes
           </h2>
-          <p>
-            Open <code>routes/web.ts</code> and add routes for your posts:
-          </p>
+          <div>
+            Open <CodeHighLight>routes/web.ts</CodeHighLight> and add routes for
+            your posts:
+          </div>
           <CodeHighLight>
             {`import { Route } from "jcc-express-mvc/Core";
 import { PostsController } from "@Controllers/PostsController";
@@ -203,11 +207,11 @@ Route.prefix("/posts").group((Route) => {
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             10. Create your views
           </h2>
-          <p>
+          <div>
             Create the necessary view files in{" "}
-            <code>resources/views/posts/</code> directory. For example,{" "}
-            <code>index.blade.html</code>:
-          </p>
+            <CodeHighLight>resources/views/posts/</CodeHighLight> directory. For
+            example, <CodeHighLight>index.blade.html</CodeHighLight>
+          </div>
           <CodeHighLight>
             {`@extends('layouts.app')
 
@@ -234,11 +238,12 @@ Route.prefix("/posts").group((Route) => {
 @endsection`}
           </CodeHighLight>
 
-          <p>
+          <div>
             That's it! You've created a basic CRUD application with
-            jcc-express-starter. Visit <code>http://localhost:5500</code> to see
-            your application in action.
-          </p>
+            jcc-express-starter. Visit{" "}
+            <CodeHighLight>http://localhost:5500</CodeHighLight> to see your
+            application in action.
+          </div>
         </div>
       </div>
     </DocLayout>

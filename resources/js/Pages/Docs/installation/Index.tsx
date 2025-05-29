@@ -15,30 +15,56 @@ export default function InstallationPage() {
             Prerequisites
           </h2>
           <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
-            <li>Node.js and npm installed</li>
-            <li>ts-node globally installed</li>
+            <li>
+              Node.js and npm installed <strong>(or Bun)</strong>
+            </li>
+            <li>
+              ts-node globally installed{" "}
+              <strong>(only if using Node.js)</strong>
+            </li>
           </ul>
 
           <p>
-            Make sure you have Node.js and npm (Node Package Manager) installed
-            and install ts-node globally on your machine.
+            If you're using <strong>ts-node</strong> instead of{" "}
+            <strong>Bun</strong>, make the following change in your{" "}
+            <code>package.json</code> scripts:
           </p>
+          <CodeHighLight>
+            {`"scripts": {
+  "start": "node -r tsconfig-paths/register server.js",
+  "dev": "ts-node --watch -r tsconfig-paths/register server.ts",
+  "watch": "vite",
+  "build": "tsc && bun artisanNode build",
+  "vite-build": "vite build"
+}`}
+          </CodeHighLight>
+          <div>
+            Replace the original Bun-based dev script:
+            <CodeHighLight>
+              "dev": "bun --watch -r tsconfig-paths/register server.ts"
+            </CodeHighLight>
+            with:
+            <br />
+            <CodeHighLight>
+              "dev": "ts-node --watch -r tsconfig-paths/register server.ts"
+            </CodeHighLight>
+          </div>
 
           <Tabs defaultValue="npx">
             <TabsList>
               <TabsTrigger value="npx" className="cursor-pointer">
                 NPX
               </TabsTrigger>
-              <TabsTrigger value="npm" className="cursor-pointer">
+              {/* <TabsTrigger value="npm" className="cursor-pointer">
                 NPM
-              </TabsTrigger>
+              </TabsTrigger> */}
             </TabsList>
             <TabsContent value="npx">
-              <CodeHighLight>jcc-express-starter </CodeHighLight>
+              <CodeHighLight>npx jcc-express-starter </CodeHighLight>
             </TabsContent>
-            <TabsContent value="npm">
+            {/* <TabsContent value="npm">
               <CodeHighLight>npm init jcc-express-starter</CodeHighLight>
-            </TabsContent>
+            </TabsContent> */}
           </Tabs>
 
           <p>
@@ -72,8 +98,10 @@ DB_PASSWORD=password`}
           <CodeHighLight>
             {`# start vite
 npm run watch
-
-# start development server
+`}
+          </CodeHighLight>
+          <CodeHighLight>
+            {`# start development server
 npm run dev`}
           </CodeHighLight>
         </div>

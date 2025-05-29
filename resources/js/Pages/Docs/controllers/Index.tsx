@@ -28,8 +28,7 @@ export default function ControllersPage() {
           </p>
 
           <CodeHighLight>
-            {`import { bcrypt, Auth } from "jcc-express-mvc";
-import { Request, Response, Next } from "jcc-express-mvc";
+            {`import { bcrypt, Auth,Request, Response, Next } from "jcc-express-mvc";
 import { User } from "@/Model/User";
 
 export class UsersController {
@@ -111,18 +110,15 @@ export class UsersController {
             generate a controller file with the basic structure:
           </p>
 
-          <div className="relative rounded-md bg-muted p-4">
-            <CodeHighLight>
-              ts-node artisanNode make:controller PostsController
-            </CodeHighLight>
-          </div>
+          <CodeHighLight>
+            ts-node artisanNode make:controller PostsController
+          </CodeHighLight>
 
           <div>
             This will create a new controller file at{" "}
             <CodeHighLight>
               app/Http/Controllers/PostsController.ts
             </CodeHighLight>
-            .
           </div>
 
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
@@ -162,7 +158,7 @@ Route.post("/users", UsersController.store);`}
           </h3>
 
           <CodeHighLight>
-            {`import { Route } from "jcc-express-mvc/Route";
+            {`import { Route } from "jcc-express-mvc/Core";
 import { UsersController } from "@Controllers/UsersController";
 
 Route.controller(UsersController).group((Route) => {

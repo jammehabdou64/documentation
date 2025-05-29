@@ -20,7 +20,7 @@ const Home = () => {
           <div className="space-y-8">
             <div className="space-y-6 text-center">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                jcc-express-starter
+                JCC-EXPRESS
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                 A Laravel-inspired MVC framework for Express.js
@@ -52,7 +52,7 @@ const Home = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>
+                  <p className="text-gray-900 dark:text-gray-300">
                     Enjoy a clean separation of concerns with Models, Views, and
                     Controllers. Organize your code in a way that makes sense.
                   </p>
@@ -60,7 +60,7 @@ const Home = () => {
                 <CardFooter>
                   <Link
                     href="/docs/project-structure"
-                    className="text-sm text-blue-600 hover:underline dark:text-blue-400"
+                    className="text-sm text-logo-cyan-muted hover:underline dark:text-logo-cyan"
                   >
                     Learn more
                   </Link>
@@ -74,7 +74,7 @@ const Home = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>
+                  <p className="text-gray-500 dark:text-gray-300">
                     Use jcc-eloquent for elegant model definitions,
                     relationships, and query building similar to Laravel's
                     Eloquent.
@@ -83,7 +83,7 @@ const Home = () => {
                 <CardFooter>
                   <Link
                     href="/docs/orm"
-                    className="text-sm text-blue-600 hover:underline dark:text-blue-400"
+                    className="text-sm text-logo-cyan-muted hover:underline dark:text-logo-cyan"
                   >
                     Learn more
                   </Link>
@@ -95,7 +95,7 @@ const Home = () => {
                   <CardDescription>Powerful command-line tools</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>
+                  <p className="text-gray-500 dark:text-gray-300">
                     Generate controllers, models, migrations, and more with
                     simple CLI commands inspired by Laravel's Artisan.
                   </p>
@@ -103,7 +103,7 @@ const Home = () => {
                 <CardFooter>
                   <Link
                     href="/docs/artisannode-cli"
-                    className="text-sm text-blue-600 hover:underline dark:text-blue-400"
+                    className="text-sm text-logo-cyan-muted hover:underline dark:text-logo-cyan"
                   >
                     Learn more
                   </Link>

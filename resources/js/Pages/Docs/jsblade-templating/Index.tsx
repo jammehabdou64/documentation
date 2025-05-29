@@ -61,7 +61,7 @@ export default function JsBladeTemplatingPage() {
           </p>
 
           <CodeHighLight>
-            {`import { Request, Response, Next } from "jcc-express-mvc/core/http";
+            {`import { Request, Response, Next } from "jcc-express-mvc";
 
 export class HomeController {
   async index(req: Request, res: Response, next: Next) {

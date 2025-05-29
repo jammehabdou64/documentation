@@ -137,8 +137,7 @@ class User extends Model {
           </h2>
 
           <CodeHighLight>
-            {`import { bcrypt, Auth } from "jcc-express-mvc";
-import { Request, Response, Next } from "jcc-express-mvc";
+            {`import { bcrypt, Auth, Request, Response, Next } from "jcc-express-mvc";
 import { Post } from "@/Model/Post";
 import { Blueprint } from "jcc-eloquent/QueryBuilder";
 export class PostsController {
